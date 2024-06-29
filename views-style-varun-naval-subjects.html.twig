@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a view template to display a list of rows.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the container.
+ * - rows: A list of rows.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's contents.
+ * - title: The title of this group of rows. May be empty.
+ *
+ * @see template_preprocess_views_style_varun_naval_subjects()
+ */
+#}
+  {% set row_classes = [default_row_class ? 'views-row'] %}
+  {% for row in rows %}
+
+    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s"
+      style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+      <div class="service-item text-center pt-3" style="background-image: url('{{ file_url(row.url)}}');">
+        <div class="p-4">
+          <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+          <h5 class="mb-3" style="color: #FFFFFF;">{{ row.title }}</h5>
+          <a class="btn btn-primary py-3 px-5 mt-2" href="">EXPLORE</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
